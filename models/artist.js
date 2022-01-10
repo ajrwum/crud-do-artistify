@@ -12,3 +12,12 @@ const artistSchema = new mongoose.Schema({
       "https://res.cloudinary.com/gdaconcept/image/upload/v1614550771/workshop-artistify/no-image-logo_dcufai.png",
   },
 });
+
+const artistModel = mongoose.model('artist',artistSchema)
+
+
+
+
+
+
+module.exports = artistModel;
