@@ -1,0 +1,37 @@
+<h1> All labels</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Logo</th>
+      <th>Name</th>
+      <th>Country</th>
+      <th>City</th>
+      <th>Street</th>
+      <th>Street Number</th>
+      <th>Zip</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each labels}}
+      <tr>
+        <td><img src="{{this.picture}}" alt="{{this.name}}" /></td>
+        <td><p>{{this.name}}</p></td>
+        <td><p>{{this.city}}</p></td>
+        <td><p>{{this.country}}</p></td>
+        <td><p>{{this.street}}</p></td>
+        <td><p>{{this.streetNumber}}</p></td>
+        <td><p>{{this.zipcode}}</p></td>
+        <td><a href="/dashboard/label/update/{{this._id}}"><i
+              class="fa-solid fa-pen"
+            ></i></a></td>
+        <td><a href="/dashboard/label/delete/{{this._id}}"><i
+              class="fa-solid fa-trash"
+            ></i></a></td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

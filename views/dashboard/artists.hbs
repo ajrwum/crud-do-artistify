@@ -19,8 +19,12 @@
         <td><p>{{this.name}}</p></td>
         <td><p>{{this.description}}</p></td>
         <td><p>{{this.isBand}}</p></td>
-        <td><a href="/dashboard/artists/update/{{this._id}}">Update</a></td>
-        <td><a href="/dashboard/artists/delete/{{this._id}}">Delete</a></td>
+        <td><a href="/dashboard/artists/update/{{this._id}}"><i
+              class="fa-solid fa-pen"
+            ></i></a></td>
+        <td><a href="/dashboard/artists/delete/{{this._id}}"><i
+              class="fa-solid fa-trash"
+            ></i></a></td>
       </tr>
     {{/each}}
   </tbody>
