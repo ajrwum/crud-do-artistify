@@ -15,15 +15,13 @@
     <tbody>  
        {{#each artists}}
         <tr> 
-           <td>
-               <img class ="" src="">  Picture</td> 
-           <td>Name</td> 
-           <td>Description</td> 
-           <td>Band</td> 
-           <td>Update</td> 
-           <td>Delete</td> 
+           <td><img src="{{this.picture}}" alt="{{this.name}}"></td> 
+           <td><p>{{this.name}}</p></td> 
+           <td><p>{{this.description}}</p></td> 
+           <td><p>{{this.isBand}}</p></td> 
+           <td><a href="/dashboard/artists/update/{{this._id}}"></a>Update</td> 
+           <td><a href="/dashboard/artists/delete/{{this._id}}"></a>Delete</td> 
         </tr>
-
        {{/each}}
     </tbody>
 </table>
