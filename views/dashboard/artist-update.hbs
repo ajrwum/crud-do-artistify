@@ -1,0 +1,20 @@
+<h1> Update an artist </h1>
+
+<form action="/dashboard/artists/{{artistToUpdate._id}}" method="post" enctype="multipart/form-data">  
+
+<label for="name">Name: </label>
+<input id="name" type="text" name="name" value="{{artistToUpdate.name}}">
+
+<label for="isBand">isBand: </label>
+<input id="isBand" type="text" name="isBand" value="{{artistToUpdate.isBand}}">
+
+<label for="description">Description: </label>
+<input id="description" type="text" name="description" value="{{artistToUpdate.description}}">
+
+<label for="picture">Picture: </label>
+<input id="picture" type="file" name="picture">
+<input id="picture" type="text" name="existingImage" hidden value="{{artistToUpdate.picture}}">
+
+<button>Update</button>
+
+</form>
