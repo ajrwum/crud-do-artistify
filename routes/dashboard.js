@@ -10,6 +10,15 @@ dashboardRouter.get("/", (req, res, next) => {
   });
 });
 
+dashboardRouter.get("/artists", async (req, res, next) => {
+  try {
+   const artists = await artistModel.find();
+    res.render("dashboard/artists",{artists});
+  } catch (error) {
+    next(error);
+  }
+});
+
 dashboardRouter.get("/artists/create", (req, res, next) => {
   res.render("dashboard/artist-create");
 });
@@ -17,10 +26,12 @@ dashboardRouter.get("/artists/create", (req, res, next) => {
 dashboardRouter.post("/artists/create", async (req, res, next) => {
   try {
     await artistModel.create(req.body);
-    res.redirect("/dashboard");
+    res.redirect("/dashboard/artists");
   } catch (error) {
     next(error);
   }
 });
+
+
 
 module.exports = dashboardRouter;
