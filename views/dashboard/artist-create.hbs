@@ -1,6 +1,6 @@
 <h1> Add a artist </h1>
 
-<form action="/dashboard/artists/create" method="post">  
+<form action="/dashboard/artists/create" method="post" enctype="multipart/form-data">  
 
 <label for="name">Name: </label >
 <input id="name" type="text" name="name">
@@ -8,11 +8,12 @@
 <label for="isBand">isBand: </label >
 <input id="isBand" type="text" name="isBand">
 
-<label for="description">description: </label >
+<label for="description">Description: </label >
 <input id="description" type="text" name="description">
 
-{{!-- <label for="picture">: </label > --}}
-{{!-- <input id="picture" type="text" name="picture"> --}}
+<label for="picture">Picture: </label >
+<input id="picture" type="file" name="picture">
 
 <button>Add </button>
+
 </form>

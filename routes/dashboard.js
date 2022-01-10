@@ -2,6 +2,9 @@ const express = require("express");
 const artistModel = require("../models/artist");
 const dashboardRouter = express.Router();
 
+// cloudinary config
+const fileUploader = require('./../config/cloudinary');
+
 dashboardRouter.get("/", (req, res, next) => {
   res.render("dashboard/index", {
     artistsNumber: 0,
@@ -23,9 +26,14 @@ dashboardRouter.get("/artists/create", (req, res, next) => {
   res.render("dashboard/artist-create");
 });
 
-dashboardRouter.post("/artists/create", async (req, res, next) => {
+dashboardRouter.post("/artists/create", fileUploader.single('picture'), async (req, res, next) => {
   try {
-    await artistModel.create(req.body);
+    // user's input directly from the form fields
+    const { name, isBand, description } = req.body;
+    // user's input after treatment from the middleware
+    const picture = req.file.path;
+
+    await artistModel.create({ name, isBand, description, picture });
     res.redirect("/dashboard/artists");
   } catch (error) {
     next(error);
