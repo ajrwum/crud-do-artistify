@@ -12,8 +12,8 @@ dashboardRouter.get("/", (req, res, next) => {
 
 dashboardRouter.get("/artists", async (req, res, next) => {
   try {
-   const artists = await artistModel.find();
-    res.render("dashboard/artists",{artists});
+    const artists = await artistModel.find();
+    res.render("dashboard/artists", { artists });
   } catch (error) {
     next(error);
   }
@@ -32,6 +32,13 @@ dashboardRouter.post("/artists/create", async (req, res, next) => {
   }
 });
 
-
+dashboardRouter.get("/artists/delete/:id", async (req, res, next) => {
+  try {
+    await artistModel.findByIdAndDelete(req.params.id);
+    res.redirect("/dashboard/artists");
+  } catch (e) {
+    next(e);
+  }
+});
 
 module.exports = dashboardRouter;

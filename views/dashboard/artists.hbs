@@ -1,27 +1,27 @@
 <h1> All artists</h1>
 
-<table> 
-    <thead>
-        <tr> 
-           <th>Picture</th> 
-           <th>Name</th> 
-           <th>Description</th> 
-           <th>Band</th> 
-           <th>Update</th> 
-           <th>Delete</th> 
-        </tr>
-    </thead>
+<table>
+  <thead>
+    <tr>
+      <th>Picture</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Band</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
 
-    <tbody>  
-       {{#each artists}}
-        <tr> 
-           <td><img src="{{this.picture}}" alt="{{this.name}}"></td> 
-           <td><p>{{this.name}}</p></td> 
-           <td><p>{{this.description}}</p></td> 
-           <td><p>{{this.isBand}}</p></td> 
-           <td><a href="/dashboard/artists/update/{{this._id}}"></a>Update</td> 
-           <td><a href="/dashboard/artists/delete/{{this._id}}"></a>Delete</td> 
-        </tr>
-       {{/each}}
-    </tbody>
+  <tbody>
+    {{#each artists}}
+      <tr>
+        <td><img src="{{this.picture}}" alt="{{this.name}}" /></td>
+        <td><p>{{this.name}}</p></td>
+        <td><p>{{this.description}}</p></td>
+        <td><p>{{this.isBand}}</p></td>
+        <td><a href="/dashboard/artists/update/{{this._id}}">Update</a></td>
+        <td><a href="/dashboard/artists/delete/{{this._id}}">Delete</a></td>
+      </tr>
+    {{/each}}
+  </tbody>
 </table>
